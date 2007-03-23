@@ -5,10 +5,9 @@ use base qw(DBIx::Class);
 use warnings;
 use strict;
 
-use Data::Dump qw(dump);
 use DateTime;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 __PACKAGE__->load_components( qw/InflateColumn::DateTime/ );
 __PACKAGE__->mk_classdata( 

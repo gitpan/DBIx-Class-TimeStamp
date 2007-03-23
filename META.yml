@@ -1,8 +1,10 @@
 abstract: ~
 author: J. Shirley <jshirley@gmail.com>
 build_requires: 
-  DBD::SQLite: 0
-  SQL::Translator: 0
+  Class::Accessor::Grouped: 0
+  DateTime::Format::MySQL: 0
+  Time::HiRes: 0
+  Time::Warp: 0
 distribution_type: module
 generated_by: Module::Install version 0.64
 license: perl
@@ -14,4 +16,4 @@ no_index:
 requires: 
   DBIx::Class: 0
   DateTime: 0
-version: 0.01
+version: 0.02
