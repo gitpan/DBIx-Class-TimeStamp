@@ -7,7 +7,7 @@ use strict;
 
 use DateTime;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 __PACKAGE__->load_components( qw/InflateColumn::DateTime/ );
 __PACKAGE__->mk_classdata( 
@@ -57,7 +57,7 @@ sub add_columns {
 
     foreach my $column ( $self->columns ) {
         my $info = $self->column_info($column);
-        if ( $info->{data_type} =~ /^(datetime|date|timestamp)$/ ) {
+        if ( $info->{data_type} =~ /^(datetime|date|timestamp)$/i ) {
             if ( $info->{set_on_update} ) {
                 push @update_columns, $column;
             }
