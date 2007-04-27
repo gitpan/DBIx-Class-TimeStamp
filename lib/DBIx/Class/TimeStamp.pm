@@ -7,7 +7,7 @@ use strict;
 
 use DateTime;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 __PACKAGE__->load_components( qw/InflateColumn::DateTime/ );
 __PACKAGE__->mk_classdata( 
@@ -84,6 +84,7 @@ sub insert {
     my @columns = @{ $self->__column_timestamp_triggers()->{on_create} };
 
     foreach my $column ( @columns ) {
+        next if defined $self->get_column( $column );
         $self->$column($now);
     }
     
@@ -94,10 +95,11 @@ sub update {
     my $self = shift;
 
     my $now  = $self->get_timestamp();
-
+    my %dirty = $self->get_dirty_columns();
     my @columns = @{ $self->__column_timestamp_triggers()->{on_update} };
 
     foreach my $column ( @columns ) {
+        next if exists $dirty{ $column };
         $self->$column($now);
     }
 
@@ -124,6 +126,10 @@ sub get_timestamp {
 
 J. Shirley <jshirley@gmail.com>
 
+=head1 CONTRIBUTORS
+
+LTJake
+
 =head1 LICENSE
 
 You may distribute this code under the same terms as Perl itself.
@@ -131,3 +137,4 @@ You may distribute this code under the same terms as Perl itself.
 =cut
 
 1;
+

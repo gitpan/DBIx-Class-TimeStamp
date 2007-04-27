@@ -1,5 +1,8 @@
 Revision history for DBIx::Class::TimeStamp
 
+0.04 2007-04-27 08:41:00
+    - Incorporating LTJake's patch to not clobber set values, LTJake++
+
 0.03 2007-04-03 19:09:00
     - Making the data_type check to be case insensitive, fixing Ticket 26081
 
