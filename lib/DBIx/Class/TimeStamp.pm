@@ -7,7 +7,7 @@ use strict;
 
 use DateTime;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 __PACKAGE__->load_components( qw/InflateColumn::DateTime/ );
 __PACKAGE__->mk_classdata( 
@@ -85,7 +85,8 @@ sub insert {
 
     foreach my $column ( @columns ) {
         next if defined $self->get_column( $column );
-        $self->$column($now);
+        my $accessor = $self->column_info($column)->{accessor} || $column;
+        $self->$accessor($now);
     }
     
     return $self->next::method(@_);
@@ -100,7 +101,8 @@ sub update {
 
     foreach my $column ( @columns ) {
         next if exists $dirty{ $column };
-        $self->$column($now);
+        my $accessor = $self->column_info($column)->{accessor} || $column;
+        $self->$accessor($now);
     }
 
     return $self->next::method(@_);
@@ -129,6 +131,8 @@ J. Shirley <jshirley@gmail.com>
 =head1 CONTRIBUTORS
 
 LTJake
+
+CaptainCarlos (Carl Vincent)
 
 =head1 LICENSE
 

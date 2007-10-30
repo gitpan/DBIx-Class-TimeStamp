@@ -20,8 +20,11 @@ t/04basic.t
 t/05datetime.t
 t/06timestamp.t
 t/07date.t
+t/08noclobber.t
+t/10accessor.t
 t/lib/DBIC/Test.pm
 t/lib/DBIC/Test/Schema.pm
+t/lib/DBIC/Test/Schema/Accessor.pm
 t/lib/DBIC/Test/Schema/Test.pm
 t/lib/DBIC/Test/Schema/TestDate.pm
 t/lib/DBIC/Test/Schema/TestDatetime.pm

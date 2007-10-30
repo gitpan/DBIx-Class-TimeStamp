@@ -1,5 +1,8 @@
 Revision history for DBIx::Class::TimeStamp
 
+0.05 2007-10-29 10:18:00
+    - Fix for RT Ticket #30191, patch from Carl Vincent to respect accessors.
+
 0.04 2007-04-27 08:41:00
     - Incorporating LTJake's patch to not clobber set values, LTJake++
 
