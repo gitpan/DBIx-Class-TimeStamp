@@ -5,6 +5,7 @@ all_from 'lib/DBIx/Class/TimeStamp.pm';
 
 requires 'DateTime';
 requires 'DBIx::Class';
+requires 'DBIx::Class::DynamicDefault';
 
 build_requires 'DateTime::Format::MySQL';
 build_requires 'Class::Accessor::Grouped';

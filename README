@@ -1,0 +1,45 @@
+NAME
+    DBIx::Class::TimeStamp
+
+DESCRIPTION
+    Works in conjunction with InflateColumn::DateTime to automatically set
+    update and create date and time based fields in a table.
+
+SYNOPSIS
+     package My::Schema;
+
+     __PACKAGE__->load_components(qw( TimeStamp ... Core ));
+     
+ __PACKAGE__->add_columns(
+        id => { data_type => 'integer' },
+        t_created => { data_type => 'datetime', set_on_create => 1 },
+        t_updated => { data_type => 'datetime',
+            set_on_create => 1, set_on_update => 1 },
+     );
+
+    Now, any update or create actions will update the specified columns with
+    the current time, using the DateTime inflator.
+
+    This is effectively trigger emulation to get consistent behavior across
+    databases that either implement them poorly or not at all.
+
+METHODS
+  get_timestamp
+    Returns a DateTime object pointing to now. Override this method if you
+    have different time accounting functions, or want to do anything
+    special.
+
+    The date and time objects in the database are expected to be inflated.
+    As such you can be pretty flexible with what you want to return here.
+
+AUTHOR
+    J. Shirley <jshirley@gmail.com>
+
+CONTRIBUTORS
+    Florian Ragwitz (Porting to DBIx::Class::DynamicDefault)
+
+    LTJake/bricas
+
+LICENSE
+    You may distribute this code under the same terms as Perl itself.
+
