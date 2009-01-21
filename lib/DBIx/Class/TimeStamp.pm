@@ -7,7 +7,7 @@ use strict;
 
 use DateTime;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 __PACKAGE__->load_components( qw/DynamicDefault InflateColumn::DateTime/ );
 
@@ -48,12 +48,17 @@ sub add_columns {
     while (my $col = shift @cols) {
         my $info = ref $cols[0] ? shift @cols : {};
 
-        if ( $info->{data_type} =~ /^(datetime|date|timestamp)$/i ) {
-            if ( delete $info->{set_on_update} ) {
+        if ( delete $info->{set_on_create} ) {
+            $info->{dynamic_default_on_create} = 'get_timestamp';
+        }
+
+        if ( delete $info->{set_on_update} ) {
+            $info->{dynamic_default_on_update} = 'get_timestamp';
+
+            if ( defined $info->{dynamic_default_on_create} and 
+                 $info->{dynamic_default_on_create} eq 'get_timestamp' 
+             ) {
                 $info->{dynamic_default_on_update} = 'get_timestamp';
-            }
-            if ( delete $info->{set_on_create} ) {
-                $info->{dynamic_default_on_create} = 'get_timestamp';
             }
         }
 
@@ -89,9 +94,12 @@ Florian Ragwitz (Porting to L<DBIx::Class::DynamicDefault>)
 
 LTJake/bricas
 
-=head1 LICENSE
+=head1 COPYRIGHT & LICENSE
 
-You may distribute this code under the same terms as Perl itself.
+Copyright 2009 J. Shirley, all rights reserved.
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
 
 =cut
 
