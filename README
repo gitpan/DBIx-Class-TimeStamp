@@ -1,5 +1,6 @@
 NAME
-    DBIx::Class::TimeStamp
+    DBIx::Class::TimeStamp - DBIx::Class extension to update and create date
+    and time based fields
 
 DESCRIPTION
     Works in conjunction with InflateColumn::DateTime to automatically set
@@ -9,8 +10,8 @@ SYNOPSIS
      package My::Schema;
 
      __PACKAGE__->load_components(qw( TimeStamp ... Core ));
-     
- __PACKAGE__->add_columns(
+ 
+     __PACKAGE__->add_columns(
         id => { data_type => 'integer' },
         t_created => { data_type => 'datetime', set_on_create => 1 },
         t_updated => { data_type => 'datetime',
@@ -40,6 +41,9 @@ CONTRIBUTORS
 
     LTJake/bricas
 
-LICENSE
-    You may distribute this code under the same terms as Perl itself.
+COPYRIGHT & LICENSE
+    Copyright 2009 J. Shirley, all rights reserved.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
 

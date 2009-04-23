@@ -7,13 +7,13 @@ use strict;
 
 use DateTime;
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 __PACKAGE__->load_components( qw/DynamicDefault InflateColumn::DateTime/ );
 
 =head1 NAME
 
-DBIx::Class::TimeStamp
+DBIx::Class::TimeStamp - DBIx::Class extension to update and create date and time based fields
 
 =head1 DESCRIPTION
 
@@ -55,8 +55,8 @@ sub add_columns {
         if ( delete $info->{set_on_update} ) {
             $info->{dynamic_default_on_update} = 'get_timestamp';
 
-            if ( defined $info->{dynamic_default_on_create} and 
-                 $info->{dynamic_default_on_create} eq 'get_timestamp' 
+            if ( defined $info->{dynamic_default_on_create} and
+                 $info->{dynamic_default_on_create} eq 'get_timestamp'
              ) {
                 $info->{dynamic_default_on_update} = 'get_timestamp';
             }
