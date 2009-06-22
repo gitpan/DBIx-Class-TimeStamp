@@ -7,7 +7,7 @@ use strict;
 
 use DateTime;
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 __PACKAGE__->load_components( qw/DynamicDefault InflateColumn::DateTime/ );
 

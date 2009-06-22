@@ -7,7 +7,7 @@ requires 'DateTime';
 requires 'DBIx::Class';
 requires 'DBIx::Class::DynamicDefault';
 
-build_requires 'DateTime::Format::MySQL';
+build_requires 'DateTime::Format::SQLite';
 build_requires 'Class::Accessor::Grouped';
 build_requires 'Time::HiRes';
 build_requires 'Time::Warp';
