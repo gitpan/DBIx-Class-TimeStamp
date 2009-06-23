@@ -3,17 +3,16 @@ inc/Module/AutoInstall.pm
 inc/Module/Install.pm
 inc/Module/Install/AutoInstall.pm
 inc/Module/Install/Base.pm
-inc/Module/Install/Can.pm
-inc/Module/Install/Fetch.pm
 inc/Module/Install/Include.pm
-inc/Module/Install/Makefile.pm
 inc/Module/Install/Metadata.pm
-inc/Module/Install/Win32.pm
-inc/Module/Install/WriteAll.pm
 lib/DBIx/Class/TimeStamp.pm
 Makefile.PL
 MANIFEST			This list of files
 META.yml
+t/.05datetime.t.swp
+t/.06timestamp.t.swp
+t/.07date.t.swp
+t/.08noclobber.t.swp
 t/02pod.t
 t/03podcoverage.t
 t/04basic.t
@@ -21,7 +20,9 @@ t/05datetime.t
 t/06timestamp.t
 t/07date.t
 t/08noclobber.t
+t/lib/DBIC/.Test.pm.swp
 t/lib/DBIC/Test.pm
+t/lib/DBIC/Test/.Schema.pm.swp
 t/lib/DBIC/Test/Schema.pm
 t/lib/DBIC/Test/Schema/Test.pm
 t/lib/DBIC/Test/Schema/TestDate.pm
