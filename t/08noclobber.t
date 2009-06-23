@@ -20,6 +20,9 @@ my $row;
 
 my $last_week = DateTime->now() - DateTime::Duration->new( weeks => 1 );
 
+my $t = time(); 
+Time::HiRes::sleep (int ($t) + 1 - $t);
+
 $row = $schema->resultset('DBIC::Test::Schema::TestDatetime')
     ->create({ display_name => 'test record', t_created => $last_week });
 

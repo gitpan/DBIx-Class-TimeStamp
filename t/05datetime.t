@@ -18,6 +18,9 @@ use DBIC::Test;
 my $schema = DBIC::Test->init_schema;
 my $row;
 
+my $t = time(); 
+Time::HiRes::sleep (int ($t) + 1 - $t);
+
 $row = $schema->resultset('DBIC::Test::Schema::TestDatetime')
     ->create({ display_name => 'test record' });
 
