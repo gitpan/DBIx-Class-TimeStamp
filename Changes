@@ -1,5 +1,9 @@
 Revision history for DBIx::Class::TimeStamp
 
+0.13 2010-05-21 18:20:00
+    - Changing resolution of tests to not use seconds, RT #48385
+    - Changing comparison in tests to support Test::More 0.96, RT #57746
+
 0.12 2009-06-30 22:25:17
     - Ship with a pregenerated sql schema for the tests to avoid the test
       dependency on SQL-Translator.

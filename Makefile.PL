@@ -14,6 +14,9 @@ build_requires 'Class::Accessor::Grouped';
 build_requires 'Time::HiRes';
 build_requires 'Time::Warp';
 
+resources 'license'     => 'http://dev.perl.org/licenses/';
+resources 'repository'  => 'http://dev.catalyst.perl.org/repos/bast/trunk/DBIx-Class-TimeStamp/';
+
 postamble(<<"EOM") if $Module::Install::AUTHOR;
 t/sql/test.sqlite.sql: t/lib/DBIC/Test/Schema.pm t/lib/DBIC/Test/Schema/*.pm
 \t\$(MKPATH) t/sql

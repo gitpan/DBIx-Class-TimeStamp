@@ -26,7 +26,7 @@ $row = $schema->resultset('DBIC::Test::Schema::TestDatetime')
 
 my $time = $row->t_updated;
 ok $row->t_created, 'created timestamp';
-is $row->t_updated, $row->t_created, 'update and create timestamp';
+is $row->t_updated->strftime('%a, %d %b %Y %H:%M'), $row->t_created->strftime('%a, %d %b %Y %H:%M'), 'update and create timestamp';
 
 to(time + 60);
 
