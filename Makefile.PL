@@ -1,18 +1,21 @@
-use inc::Module::Install;
+use inc::Module::Install 1.00;
 
+perl_version '5.008001';
 name 'DBIx-Class-TimeStamp';
 all_from 'lib/DBIx/Class/TimeStamp.pm';
 
-requires 'DateTime';
-requires 'DBIx::Class';
-requires 'DBIx::Class::DynamicDefault';
+requires 'DateTime'                     => 0.55;
+requires 'DBIx::Class'                  => 0.08009;
+requires 'DBIx::Class::DynamicDefault'  => 0.03;
 
-build_requires 'DateTime::Format::SQLite';
-build_requires 'DateTime::Format::MySQL';
+test_requires 'DateTime::Format::SQLite';
+test_requires 'Time::HiRes';
+test_requires 'Time::Warp';
 
-build_requires 'Class::Accessor::Grouped';
-build_requires 'Time::HiRes';
-build_requires 'Time::Warp';
+# legacy for old-ish DBICs
+test_requires 'DateTime::Format::MySQL'; 
+test_requires 'Class::Accessor::Grouped';
+
 
 resources 'license'     => 'http://dev.perl.org/licenses/';
 resources 'repository'  => 'http://dev.catalyst.perl.org/repos/bast/trunk/DBIx-Class-TimeStamp/';

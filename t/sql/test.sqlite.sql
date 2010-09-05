@@ -1,9 +1,9 @@
 -- 
 -- Created by SQL::Translator::Producer::SQLite
--- Created on Fri May 21 18:23:10 2010
+-- Created on Sun Sep  5 17:00:32 2010
 -- 
 
-
+;
 BEGIN TRANSACTION;
 --
 -- Table: test
